@@ -1,0 +1,146 @@
+body {
+	font: 12pt sans-serif;
+	background: gray;
+	margin: 20px;
+}
+
+.card {
+	background: white;
+	border-radius: 3px;
+	box-shadow: 0 7px 10px rgba(0, 0, 0, 0.5);
+	padding: 0 20px;
+	margin: 20px auto;
+	/* Prevent margin collapse with children */
+	border: 1px solid transparent; 
+}
+
+.center-content, .right-sidebar {
+	max-width: 750px;
+	margin: 0 auto;
+}
+
+/*
+ * content width + 2 * (sidebar width + 2 * (border + padding)) + 2 * margin
+ * = 750 + 2 * (250 + 2 * (1 + 20)) + 2 * 20
+ * = 1416
+ */
+@media (min-width: 1374px) {
+	.right-sidebar, .left-sidebar {
+		width: 250px;
+		position: fixed;
+		top: 0px;
+	}
+	/* For translations:
+	 * = content width / 2 + margin
+	 * = 750 / 2 + 20
+	 */
+	.right-sidebar {
+		right: 50%;
+		transform: translateX(-395px);
+	}
+	.left-sidebar {
+		left: 50%;
+		transform: translateX(395px);
+	}
+	.scard {
+		/* All the normal styles... */
+		background: white;
+		border-radius: 3px;
+		box-shadow: 0 7px 10px rgba(0, 0, 0, 0.5);
+		margin: 20px auto;
+		padding: 0 20px;
+		/* Prevent margin collapse with children */
+		border: 1px solid transparent; 
+	}
+	/* Smaller headings in side bars */
+	.right-sidebar h1, .right-sidebar h2, .right-sidebar h3,
+	.left-sidebar h1, .left-sidebar h2, .left-sidebar h3 {
+		font-size: 1.2em;
+		margin: 0.8em 0;
+	}
+}
+
+/* Navigation lists */
+
+nav ul {
+	list-style: none;
+	padding-left: 0;
+}
+nav ul ul {
+	/* list-style: none; */
+	padding-left: 20px;
+}
+nav li {
+	margin: 0.3rem 0;
+}
+@media (max-width: 1374px) {
+	.page-nav h2 {
+		display: none;
+	}
+	.page-nav ul {
+		display: flex;
+		flex-wrap: wrap;
+		/* align-items: stretch; */
+		align-items: center;
+	}
+	.page-nav li {
+		flex-grow: 1;
+		flex-basis: 50px;
+		text-align: center;
+	}
+	.page-nav a {
+		display: block;
+		/* This ruins vertical centering */
+		/* height: 100%; */
+	}
+}
+
+/* Footer */
+
+.page-footer {
+	text-align: center;
+	font-size: 0.8em;
+}
+
+/* Resume */
+
+.resume-item .line1, .resume-item .line2 {
+	display: flex;
+	justify-content: space-between;
+	align-items: baseline;
+}
+.resume-item .line1 *, .resume-item .line2 * {
+	margin: 0;
+	line-height: 1;
+}
+.resume-item .line1 {
+	margin: 1em 0 0.5em;
+	font-weight: bold;
+}
+.resume-item .line2 {
+	margin: 0.5em 0 1em;
+	font-variant: small-caps;
+	letter-spacing: 0.1em;
+}
+.resume-item ul {
+	padding: 0 40px;
+}
+.resume-item .edu-info {
+	display: flex;
+	list-style: none;
+	margin-bottom: -1em;
+	justify-content: space-between;
+}
+@media (max-width: 650px) {
+	.resume-item .line1, .resume-item .line2, .resume-item .edu-info {
+		flex-direction: column;
+	}
+	/* :nth-child(n+2) = All but first */
+	.resume-item .line1 *:nth-child(n+2) {
+		font-weight: normal;
+	}
+	.resume-item .line2 *:nth-child(n+2) {
+		font-variant: normal;
+		letter-spacing: auto;
+	}
+}
