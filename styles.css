@@ -19,6 +19,15 @@ body {
 	margin: 0 auto;
 }
 
+@media (max-width: 650px) {
+	body {
+		margin: 0;
+	}
+	.card {
+		border-radius: 0;
+	}
+}
+
 /*
  * content width + 2 * (sidebar width + 2 * (border + padding)) + 2 * margin
  * = 750 + 2 * (250 + 2 * (1 + 20)) + 2 * 20
