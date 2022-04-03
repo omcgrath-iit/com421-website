@@ -1,23 +1,101 @@
 body {
-	font: 14px sans-serif;
-	background: gray;
+	font: 400 14px 'DejaVu Sans', sans-serif;
+	background:
+	fixed center/cover url(../images/bg.webp),
+	/* Use a similarish gradient until the picture loads */
+	fixed center/auto linear-gradient(192deg, #1a555d, #6590a1, #a98682, #f0be99)
+	/* Plain color otherwise */
+	#6590a1;
 	margin: 20px;
 }
 
-/* Headings */
-h1, h2, h3, h4 {
-	font-weight: 600;
+@font-face {
+	font-family: 'DejaVu Sans';
+	font-weight: 400;
+	font-display: swap;
+	src:
+	local('DejaVu Sans'),
+	url(../fonts/dejavu-sans-400.woff2);
 }
-h1 { font-size: 2.20em; }
-h2 { font-size: 1.80em; }
-h3 { font-size: 1.40em; }
-h4 { font-size: 1.00em; }
+
+@font-face {
+	font-family: 'Source Sans 3';
+	font-weight: 600;
+	font-display: swap;
+	src:
+	local('Source Sans 3 Semibold'),
+	local('Source Sans 3'),
+	url(../fonts/source-sans-3-600.woff2);
+}
+
+@font-face {
+	font-family: 'Florencesans SC';
+	font-weight: 400;
+	font-variant: small-caps;
+	font-display: swap;
+	src:
+	local('Florencesans SC'),
+	url(../fonts/florencesans-sc-400.woff2);
+}
+
+.twocol {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0 1rem;
+}
+
+/* Headings */
+h1, h2, h3, h4, .resume-item .line1 {
+	font-weight: 600;
+	font-family: 'Source Sans 3', sans-serif;
+	color: #333;
+}
+h1 { font-size: 220%; }
+h2 { font-size: 180%; }
+h3 { font-size: 140%; }
+h4 { font-size: 100%; }
 h1, h2 {
-	margin: 1rem 0 1em;
+	margin: 1rem 0 1rem;
 }
 h3, h4 {
-	margin: 1.5em 0 0.5em;
+	margin: 2rem 0 1rem;
 }
+
+/* Links */
+a {
+	/* Color from background image */
+	color: #234f68;
+}
+a:visited {
+	/* Normal color hue-shifted */
+	color: #352368;
+}
+
+/* Lists */
+dt {
+	font: 400 small-caps 100% 'Florencesans SC', sans-serif;
+}
+
+
+
+/* Contact info */
+
+.contact {
+	display: grid;
+	grid-template-columns: 0px 1fr;
+	align-items: baseline;
+}
+dl.contact dt {
+	font-size: 80%;
+	white-space: nowrap;
+}
+dl.contact dd {
+	display: inline;
+	margin: 0;
+	text-align: right;
+}
+
+/* Cards and layout */
 
 .card {
 	background: white;
@@ -40,6 +118,8 @@ h3, h4 {
 	}
 	.card {
 		border-radius: 0;
+		margin-top: 0;
+		padding: 0 10px;
 	}
 }
 
@@ -92,10 +172,11 @@ nav ul {
 }
 nav ul ul {
 	/* list-style: none; */
+	/* XXX: this can be put in margin of nav li */
 	padding-left: 20px;
 }
 nav li {
-	margin: 0.3rem 0;
+	margin: 0.3rem;
 }
 @media (max-width: 1374px) {
 	.page-nav h2 {
@@ -123,11 +204,20 @@ nav li {
 
 .page-footer {
 	text-align: center;
-	font-size: 0.8em;
+	font-size: 80%;
+	margin-bottom: 0;
 }
 
 /* Resume */
 
+.resume-item {
+	margin-bottom: 1rem;
+}
+.resume-item .line1, .resume-item .line2,
+.resume-item .edu-info, .resume-item .gen-info {
+	/*margin: 0 0 0.2em;*/
+	margin: 0;
+}
 .resume-item .line1, .resume-item .line2 {
 	display: flex;
 	justify-content: space-between;
@@ -135,25 +225,27 @@ nav li {
 }
 .resume-item .line1 *, .resume-item .line2 * {
 	margin: 0;
-	line-height: 1;
 }
 .resume-item .line1 {
-	margin: 1em 0 0.5em;
-	font-weight: bold;
+	font-size: 1.075rem;
+	line-height: 1;
 }
+/* XXX do this "the opposite" way */
 .resume-item .line2 {
-	margin: 0.5em 0 1em;
+	font-family: 'Florencesans SC', 'DejaVu Sans', sans-serif;
 	font-variant: small-caps;
 	letter-spacing: 0.1em;
 }
+/*
 .resume-item ul {
 	padding: 0 40px;
 }
+*/
 .resume-item .edu-info {
 	display: flex;
 	list-style: none;
-	margin-bottom: -1em;
 	justify-content: space-between;
+	padding-left: 0;
 }
 @media (max-width: 650px) {
 	.resume-item .line1, .resume-item .line2, .resume-item .edu-info {
@@ -161,10 +253,12 @@ nav li {
 	}
 	/* :nth-child(n+2) = All but first */
 	.resume-item .line1 *:nth-child(n+2) {
-		font-weight: normal;
+		font: 400 14px 'DejaVu Sans', sans-serif; /* Back to normal */
+		color: black;
 	}
 	.resume-item .line2 *:nth-child(n+2) {
+		font: 400 14px 'DejaVu Sans', sans-serif; /* Back to normal */
 		font-variant: normal;
-		letter-spacing: auto;
+		letter-spacing: initial;
 	}
 }

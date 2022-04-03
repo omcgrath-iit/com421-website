@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<title>Projects — Owen McGrath</title>
+		<link rel="stylesheet" href="styles/styles.css"/>
+	</head>
+	<body>
+		<div class="right-sidebar">
+			<header class="page-header card">
+				<h1>Owen McGrath</h1>
+				<p>Programmer and Computer Science student</p>
+			</header>
+			<nav class="page-nav card">
+				<h2>Links</h2>
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="resume.html">Resumé</a></li>
+					<li><a href="projects.html">Projects</a></li>
+				</ul>
+				<dl class="contact">
+					<dt>Email</dt>
+					<dd><a href="mailto:omcgrath@hawk.iit.edu">omcgrath@hawk.iit.edu</a></dd>
+					<dt>GitHub</dt>
+					<dd><a href="https://github.com/owm111">owm111</a></dd>
+					<dt>IIT GitHub</dt>
+					<dd><a href="https://github.com/omcgrath-iit">omcgrath-iit</a></dd>
+					<dt>LinkedIn</dt>
+					<dd><a href="https://www.linkedin.com/in/owen-mcgrath-09a015232">Owen McGrath</a></dd>
+				</dl>
+			</nav>
+		</div>
+		<div class="center-content">
+			<main>
+				<section id="projects" class="card">
+					<h2>Projects</h2>
+					<p>Some selected projects of mine.</p>
+					<div class="left-sidebar">
+						<nav class="scard page-toc" id="contents">
+							<h3>Contents</h3>
+							<ul>
+								<li><a href="#rpn-calculator">Assembly RPN Calculator</a></li>
+								<li><a href="#io-benchmark">I/O Benchmark Program</a></li>
+								<li><a href="#xmonad-extensions">XMonad Extensions</a></li>
+							</ul>
+						</nav>
+					</div>
+					<section id="rpn-calculator">
+						<h3>Assembly RPN Calculator</h3>
+						<p>
+							A calculator program written in MIPS32 assembly code for <a href="http://spimsimulator.sourceforge.net">SPIM-like</a> simulators.
+							It is similar in concept to the Unix program dc, though with a far simpler interface and implementation.
+							Expressions are input in reverse Polish notation, i.e, operators appear after their respective operands; see documentation for further details.
+							Supported operations, for integral arithmetic on 32-bit integers, include:
+						</p>
+						<ul class="twocol">
+							<li>Addition</li>
+							<li>Subtraction</li>
+							<li>Multiplication</li>
+							<li>Division</li>
+							<li>Modulo</li>
+							<li>Summation</li>
+							<li>Exponents</li>
+							<li>Factorials</li>
+							<li>Conversion from binary to decimal</li>
+							<li>Control operations for managing the RPN stack</li>
+						</ul>
+						<p><a href="files/rpn-calculator.tar.gz">Source and documentation download</a></p>
+					</section>
+					<section id="io-benchmark">
+						<h3>I/O Benchmark Program</h3>
+						<p>
+							A program for benchmarking file I/O on Linux.
+							It can test latency and throughput in sequential writes, sequential reads, random writes, and random reads in single-threaded or concurrent workloads.
+							It uses direct I/O to ensure it is measuring disk speed, not cache speed.
+						</p>
+						<p>
+							The source code is written in C and uses only C standard libraries and Linux system libraries.
+							Included are shell and AWK scripts for automated testing of many configurations; running a similar benchmark program (<a href="https://iozone.org">IOzone</a>) and formatting its results; and generating reports comparing each program's output in equivalent tests.
+						</p>
+						<p>(Not posting the source code until the assignment is graded)</p>
+					</section>
+					<section id="xmonad-extensions">
+						<h3>XMonad Extensions</h3>
+						<p>
+							Assorted extensions for the <a href="https://xmonad.org">XMonad</a> window manager.
+							Written in Haskell, built with Cabal, and can be installed via Nix flakes.
+							Some of the most interesting modules include:
+						</p>
+						<dl>
+							<dt>XMonad.Actions.CycleSettings</dt>
+							<dd>Allows cycling between various sets of settings (e.g., spacing and decorations), on a per-workspace basis</dd>
+							<dt>XMonad.Hooks.DisableShadows</dt>
+							<dd>For use with a compositor, can set appropriate windows properties to disable shadows where they do not make sense</dd>
+							<dt>XMonad.Layouts.Toggle3Layouts</dt>
+							<dd>A layout similar to XMonad.Layout.ToggleLayouts except that it allows toggling between three layouts</dd>
+						</dl>
+						<p><a href="https://github.com/owm111/xmonad-extensions">GitHub Repository</a></p>
+					</section>
+				</section>
+			</main>
+			<footer class="page-footer card">
+				<p>Background image by <a href="https://unsplash.com/@iambradknight?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Brad Knight</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+				<p>© 2022 Owen McGrath</p>
+			</footer>
+		</div>
+	</body>
+</html>
